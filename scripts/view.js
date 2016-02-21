@@ -1,18 +1,8 @@
-/*global H5P*/
-H5P.CssChallenge = (function ($) {
+H5P.CssChallenge = H5P.CssChallenge || {};
+H5P.CssChallenge.View = (function () {
   "use strict";
 
-
-  /**
-   *
-   * @param params
-   * @param params.existingRules
-   * @param params.answerRules
-   * @param params.answerRules.mainRule
-   * @constructor
-   */
-  function CssChallenge(params) {
-
+  function View(existingRulesString, answerRulesString) {
     // View of css elements
     var viewContainer = document.createElement('div');
     viewContainer.className = 'h5p-css-challenge-view-container';
@@ -37,39 +27,35 @@ H5P.CssChallenge = (function ($) {
     targetElement.className = 'h5p-css-challenge-target';
     targetContainer.appendChild(targetElement);
 
-    // Apply helpers to target and goal
-    var existingRulesString = '';
-    params.existingRules.forEach(function (existingRule) {
-      existingRulesString += existingRule;
-    });
-
-    // Apply correct rules to goal
-    var answerRulesString = '';
-    params.answerRules.forEach(function (answerRule) {
-      answerRulesString += answerRule.mainRule;
-    });
-
     // Set styles on elements
     goalElement.setAttribute('style', existingRulesString + answerRulesString);
     targetElement.setAttribute('style', existingRulesString);
 
-    // Input field for user
-    var inputContainer = document.createElement('div');
-    inputContainer.className = 'h5p-css-challenge-input-container';
+    /**
+     * Add given style to existing styles for target element.
+     *
+     * @param {string} style Style as string
+     * @returns {View}
+     */
+    this.setTargetStyle = function (style) {
+      targetElement.setAttribute('style', existingRulesString + style);
 
-    // Create input field
-    var input = document.createElement('textarea');
-    input.className = 'h5p-css-challenge-input';
-    input.onkeyup = function () {
-      targetElement.setAttribute('style', existingRulesString + input.value);
+      return this;
     };
-    inputContainer.appendChild(input);
 
-    this.attach = function ($wrapper) {
-      $wrapper[0].appendChild(inputContainer);
-      $wrapper[0].appendChild(viewContainer);
+    /**
+     * Append view to given element.
+     *
+     * @param {HTMLElement} wrapperElement
+     *    Wrapper element that view will be appended to
+     * @returns {View}
+     */
+    this.appendTo = function (wrapperElement) {
+      wrapperElement.appendChild(viewContainer);
+
+      return this;
     };
   }
 
-  return CssChallenge;
-}(H5P.jQuery));
+  return View;
+}());

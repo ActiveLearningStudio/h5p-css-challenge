@@ -9,9 +9,13 @@
   "license": "cc-by-sa",
   "machineName": "H5P.CssChallenge",
   "preloadedJs": [
-    {"path": "css-challenge.js"}
+    {"path": "scripts/input.js"},
+    {"path": "scripts/view.js"},
+    {"path": "scripts/css-challenge.js"}
   ],
   "preloadedCss": [
-    {"path": "css-challenge.css"}
+    {"path": "styles/layout.css"},
+    {"path": "styles/input.css"},
+    {"path": "styles/view.css"}
   ]
 }

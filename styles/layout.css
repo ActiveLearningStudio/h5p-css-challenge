@@ -1,0 +1,14 @@
+.h5p-css-challenge-view-container,
+.h5p-css-challenge-input-container {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 200px;
+}
+
+.h5p-css-challenge-goal-container,
+.h5p-css-challenge-target-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
