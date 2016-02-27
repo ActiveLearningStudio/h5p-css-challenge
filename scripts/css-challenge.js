@@ -3,17 +3,27 @@ H5P.CssChallenge = (function (Input, View) {
   "use strict";
 
   /**
+   * @type AnswerRule
+   * @property {string}   AnswerRule.mainRule
+   * @property {string[]} [AnswerRule.alternatives]
+   */
+
+  /**
    *
-   * @param params
-   * @param params.existingRules
-   * @param params.answerRules
-   * @param params.answerRules.mainRule
+   * @param {Object}        params
+   * @param {string}        params.challengeText
+   * @param {Array}         params.existingRules
+   * @param {AnswerRule[]}  params.answerRules
+   * @param {Object}        params.l10n
    * @constructor
    */
   function CssChallenge(params) {
 
+    console.log("params", params);
+
     // Apply helpers to target and goal
     var existingRulesString = '';
+    params.existingRules = params.existingRules || [];
     params.existingRules.forEach(function (existingRule) {
       existingRulesString += existingRule;
     });
@@ -25,7 +35,7 @@ H5P.CssChallenge = (function (Input, View) {
     });
 
     var view = new View(existingRulesString, answerRulesString);
-    var input = new Input();
+    var input = new Input(params.answerRules.length, params.challengeText, params.l10n);
     input.on('inputChanged', function (e) {
       view.setTargetStyle(e.data);
     });

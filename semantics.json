@@ -46,5 +46,25 @@
         }
       ]
     }
+  },
+  {
+    "name": "l10n",
+    "type": "grouop",
+    "label": "Localization",
+    "common": true,
+    "fields": [
+      {
+        "name": "inputDescription",
+        "type": "text",
+        "label": "Input description",
+        "default": "Add your css here:"
+      },
+      {
+        "name": "targetElementClass",
+        "type": "text",
+        "label": "Target element class",
+        "default": ".ball"
+      }
+    ]
   }
 ]
