@@ -49,7 +49,7 @@
   },
   {
     "name": "l10n",
-    "type": "grouop",
+    "type": "group",
     "label": "Localization",
     "common": true,
     "fields": [

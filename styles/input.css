@@ -17,14 +17,14 @@
   background: #76b0a1;
 }
 
-.h5p-css-challenge-input-description {
+.h5p-css-challenge-description {
   margin: 1em;
   padding: 0.5em;
   background: #fdfbe6;
   position: relative;
 }
 
-.h5p-css-challenge-input-description:before {
+.h5p-css-challenge-description:before {
   content: "";
   width: 0;
   height: 0;

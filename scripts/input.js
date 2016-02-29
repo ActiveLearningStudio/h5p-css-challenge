@@ -4,6 +4,7 @@ H5P.CssChallenge.Input = (function (EventDispatcher) {
 
   /**
    *
+   * @param {number} inputRows
    * @param {string} challengeText
    * @param {Object} l10n
    * @param {string} l10n.inputDescription
