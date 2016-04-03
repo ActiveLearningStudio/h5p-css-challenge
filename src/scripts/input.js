@@ -1,6 +1,5 @@
-H5P.CssChallenge = H5P.CssChallenge || {};
-H5P.CssChallenge.Input = (function (EventDispatcher) {
-  "use strict";
+/*global H5P*/
+export default class Input extends H5P.EventDispatcher {
 
   /**
    *
@@ -10,8 +9,8 @@ H5P.CssChallenge.Input = (function (EventDispatcher) {
    * @param {string} l10n.inputDescription
    * @constructor
    */
-  function Input(inputRows, challengeText, l10n) {
-    EventDispatcher.call(this);
+  constructor(inputRows, challengeText, l10n) {
+    super();
 
     // Challenge description
     var challengeDescription = document.createElement('div');
@@ -52,7 +51,7 @@ H5P.CssChallenge.Input = (function (EventDispatcher) {
      * Append input to wrapper element.
      *
      * @param {HTMLElement} wrapperElement
-     * @returns {H5P.CssChallenge.Input}
+     * @returns {Input}
      */
     this.appendTo = function (wrapperElement) {
       wrapperElement.appendChild(inputContainer);
@@ -60,10 +59,4 @@ H5P.CssChallenge.Input = (function (EventDispatcher) {
       return this;
     };
   }
-
-  Input.prototype = Object.create(EventDispatcher.prototype);
-  Input.prototype.constructor = Input;
-
-  return Input;
-
-}(H5P.EventDispatcher));
+}

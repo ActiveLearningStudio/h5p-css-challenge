@@ -1,8 +1,6 @@
-H5P.CssChallenge = H5P.CssChallenge || {};
-H5P.CssChallenge.View = (function () {
-  "use strict";
+export default class View {
 
-  function View(existingRulesString, answerRulesString) {
+  constructor(existingRulesString, answerRulesString) {
     // View of css elements
     var viewContainer = document.createElement('div');
     viewContainer.className = 'h5p-css-challenge-view-container';
@@ -56,6 +54,4 @@ H5P.CssChallenge.View = (function () {
       return this;
     };
   }
-
-  return View;
-}());
+}

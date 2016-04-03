@@ -1,0 +1,12 @@
+{
+  "existingRules": [
+    "background: green;"
+  ],
+  "answerRules": [
+    "margin: auto"
+  ],
+  "challengeText": "Make the background red!",
+  "l10n": {
+    "inputDescription": "Put in stuff"
+  }
+}

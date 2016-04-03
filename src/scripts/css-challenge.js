@@ -1,12 +1,16 @@
 /*global H5P*/
-H5P.CssChallenge = (function (Input, View) {
-  "use strict";
 
-  /**
-   * @type AnswerRule
-   * @property {string}   AnswerRule.mainRule
-   * @property {string[]} [AnswerRule.alternatives]
-   */
+// Import scripts
+import View from './view';
+import Input from './input';
+
+/**
+ * @type AnswerRule
+ * @property {string}   AnswerRule.mainRule
+ * @property {string[]} [AnswerRule.alternatives]
+ */
+
+H5P.CssChallenge = (function () {
 
   /**
    *
@@ -18,9 +22,6 @@ H5P.CssChallenge = (function (Input, View) {
    * @constructor
    */
   function CssChallenge(params) {
-
-    console.log("params", params);
-
     // Apply helpers to target and goal
     var existingRulesString = '';
     params.existingRules = params.existingRules || [];
@@ -48,11 +49,10 @@ H5P.CssChallenge = (function (Input, View) {
     this.attach = function ($wrapper) {
       input.appendTo($wrapper[0]);
       view.appendTo($wrapper[0]);
+
+      return this;
     };
   }
 
   return CssChallenge;
-}(
-    H5P.CssChallenge.Input,
-    H5P.CssChallenge.View
-));
+})();
