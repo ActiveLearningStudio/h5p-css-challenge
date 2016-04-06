@@ -42,26 +42,22 @@ describe('View', function () {
     var goalElement = wrapper
       .getElementsByClassName('h5p-css-challenge-goal')[0];
 
-    var elementHasStyle = function (element, style) {
-      return element.style.cssText.includes(style);
-    };
-
     it('should keep original style with invalid update value', function () {
       view.setTargetStyle('asdf');
-      expect(elementHasStyle(targetElement, existingRulesString))
+      expect(targetElement.style.cssText.includes(existingRulesString))
         .toBe(true);
     });
 
     it('should update its style with valid update value', function () {
       var validStyleString = 'margin: auto;';
       view.setTargetStyle(validStyleString);
-      expect(elementHasStyle(targetElement, validStyleString))
+      expect(targetElement.style.cssText.includes(validStyleString))
         .toBe(true);
     });
 
     it('should have the same style as goal with correct input value', function () {
       view.setTargetStyle(answerRulesString);
-      expect(elementHasStyle(targetElement, goalElement.style.cssText))
+      expect(targetElement.style.cssText.includes(goalElement.style.cssText))
         .toBe(true);
     });
   });
