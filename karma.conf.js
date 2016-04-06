@@ -28,7 +28,8 @@ module.exports = function(config) {
     preprocessors: {
       'src/test/css-challenge.Test.js': ['webpack'],
       'src/test/input.Test.js': ['webpack'],
-      'src/test/view.Test.js': ['webpack']
+      'src/test/view.Test.js': ['webpack'],
+      'src/scripts/*.js': ['coverage']
     },
 
     webpack: {
@@ -36,12 +37,24 @@ module.exports = function(config) {
         postLoaders: [
           {
             test: /\.js$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             loader: 'istanbul-instrumenter'
           },
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
-          { test: /\.css$/, exclude: /node_modules/, loader: "style!css" },
-          { test: /\.json$/, exclude: /node_modules/, loader: 'json'}
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel'
+          },
+          {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            loader: "style!css"
+          },
+          {
+            test: /\.json$/,
+            exclude: /node_modules/,
+            loader: 'json'
+          }
         ]
       }
     },
@@ -49,11 +62,11 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'coveralls'],
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage'
+      type: 'lcov',
+      dir: 'report'
     },
 
     // web server port
@@ -65,9 +78,6 @@ module.exports = function(config) {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
-
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
