@@ -23,21 +23,6 @@ var view = new View(existingRulesString, answerRulesString);
 var wrapper = document.createElement('div');
 document.body.appendChild(wrapper);
 
-if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    'use strict';
-    if (typeof start !== 'number') {
-      start = 0;
-    }
-
-    if (start + search.length > this.length) {
-      return false;
-    } else {
-      return this.indexOf(search, start) !== -1;
-    }
-  };
-}
-
 describe('View', function () {
 
   describe('Async DOM', function () {
@@ -59,20 +44,20 @@ describe('View', function () {
 
     it('should keep original style with invalid update value', function () {
       view.setTargetStyle('asdf');
-      expect(targetElement.style.cssText.includes(existingRulesString))
+      expect(targetElement.style.cssText.indexOf(existingRulesString) !== -1)
         .toBe(true);
     });
 
     it('should update its style with valid update value', function () {
       var validStyleString = 'margin: auto;';
       view.setTargetStyle(validStyleString);
-      expect(targetElement.style.cssText.includes(validStyleString))
+      expect(targetElement.style.cssText.indexOf(validStyleString) !== -1)
         .toBe(true);
     });
 
     it('should have the same style as goal with correct input value', function () {
       view.setTargetStyle(answerRulesString);
-      expect(targetElement.style.cssText.includes(goalElement.style.cssText))
+      expect(targetElement.style.cssText.indexOf(goalElement.style.cssText) !== -1)
         .toBe(true);
     });
   });
