@@ -1,3 +1,5 @@
+var path = require('path');
+
 // Karma configuration
 // Generated on Tue Mar 29 2016 10:51:31 GMT+0200 (Vest-Europa (sommertid))
 module.exports = function(config) {
@@ -14,9 +16,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/test/css-challenge.Test.js',
-      'src/test/input.Test.js',
-      'src/test/view.Test.js'
+      'src/test/*.js'
     ],
 
     // list of files to exclude
@@ -26,9 +26,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/test/css-challenge.Test.js': ['webpack'],
-      'src/test/input.Test.js': ['webpack'],
-      'src/test/view.Test.js': ['webpack'],
+      'src/test/*.js': ['webpack'],
       'src/scripts/*.js': ['coverage']
     },
 
@@ -37,22 +35,25 @@ module.exports = function(config) {
         postLoaders: [
           {
             test: /\.js$/,
-            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src/scripts'),
             loader: 'istanbul-instrumenter'
           },
           {
             test: /\.js$/,
-            exclude: /node_modules/,
+            include: [
+              path.resolve(__dirname, 'src/scripts'),
+              path.resolve(__dirname, 'src/test')
+            ],
             loader: 'babel'
           },
           {
             test: /\.css$/,
-            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src'),
             loader: "style!css"
           },
           {
             test: /\.json$/,
-            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src'),
             loader: 'json'
           }
         ]
