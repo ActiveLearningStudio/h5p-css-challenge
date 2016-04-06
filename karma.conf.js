@@ -111,7 +111,7 @@ module.exports = function(config) {
     configuration.browsers = ['Chrome_travis_ci'];
 
     // Add to coveralls
-    configuration.browsers.push('coveralls');
+    configuration.reporters.push('coveralls');
     configuration.coverageReporter.reporters.push({ type: 'lcov', subdir: 'report-lcov' });
 
     configuration.autoWatch = false;
