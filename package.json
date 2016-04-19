@@ -4,7 +4,9 @@
   "description": "Challenges you to write css to solve a problem",
   "main": "index.js",
   "scripts": {
-    "test": "karma start",
+    "start": "npm install && npm run webpack && npm run test && npm run docs",
+    "test": "karma start --single-run",
+    "testdev": "karma start",
     "webpack": "webpack -d",
     "dev": "webpack -d && webpack-dev-server -d --inline --hot --open",
     "docs": "esdoc -c esdoc.json"
