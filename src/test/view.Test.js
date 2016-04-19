@@ -1,6 +1,7 @@
 /**
  * Created by thoma_000 on 03.04.2016.
  */
+import 'expose?H5P!exports?H5P!h5p-view';
 import View from '../scripts/view';
 
 var params = require('../content/test1.json');

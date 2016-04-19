@@ -9,6 +9,13 @@
   "license": "cc-by-sa",
   "machineName": "H5P.CssChallenge",
   "preloadedJs": [
-    {"path": "dist/prod.js"}
+    {"path": "build/dist.js"}
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.CssChallenge",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
   ]
 }

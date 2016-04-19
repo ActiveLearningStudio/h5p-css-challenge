@@ -2,7 +2,7 @@
  * Created by thoma_000 on 03.04.2016.
  */
 
-require('h5p-view');
+import 'expose?H5P!exports?H5P!h5p-view';
 import Input from '../scripts/input';
 var params = require('../content/test1.json');
 

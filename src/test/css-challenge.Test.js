@@ -3,15 +3,13 @@
  */
 
 /*global H5P*/
-require('h5p-view');
-require('../prod');
-
+import 'expose?H5P!exports?H5P!h5p-view';
+import CssChallenge from '../scripts/css-challenge';
 var params = require('../content/test1.json');
-var $ = H5P.jQuery;
 
 describe('Css challenge', function () {
-  var cssChallenge = new H5P.CssChallenge(params);
-  var $testWrapper =  $('<div/>');
+  var cssChallenge = new CssChallenge(params);
+  var $testWrapper =  H5P.jQuery('<div/>');
   var testWrapper = $testWrapper.get(0);
   document.body.appendChild(testWrapper);
 

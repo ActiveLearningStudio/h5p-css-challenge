@@ -3,14 +3,13 @@
 // Import scripts
 import View from './view';
 import Input from './input';
-
 /**
  * @type AnswerRule
  * @property {string}   AnswerRule.mainRule
  * @property {string[]} [AnswerRule.alternatives]
  */
 
-H5P.CssChallenge = (function () {
+export default class CssChallenge {
 
   /**
    *
@@ -21,7 +20,7 @@ H5P.CssChallenge = (function () {
    * @param {Object}        params.l10n
    * @constructor
    */
-  function CssChallenge(params) {
+  constructor(params) {
     // Apply helpers to target and goal
     var existingRulesString = '';
     params.existingRules = params.existingRules || [];
@@ -53,6 +52,4 @@ H5P.CssChallenge = (function () {
       return this;
     };
   }
-
-  return CssChallenge;
-})();
+}

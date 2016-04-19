@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 // Karma configuration
 // Generated on Tue Mar 29 2016 10:51:31 GMT+0200 (Vest-Europa (sommertid))
@@ -32,12 +33,7 @@ module.exports = function(config) {
 
     webpack: {
       module: {
-        postLoaders: [
-          {
-            test: /\.js$/,
-            include: path.resolve(__dirname, 'src/scripts'),
-            loader: 'istanbul-instrumenter'
-          },
+        loaders: [
           {
             test: /\.js$/,
             include: [
@@ -55,6 +51,13 @@ module.exports = function(config) {
             test: /\.json$/,
             include: path.resolve(__dirname, 'src'),
             loader: 'json'
+          }
+        ],
+        postLoaders: [
+          {
+            test: /\.js$/,
+            include: path.resolve(__dirname, 'src/scripts'),
+            loader: 'istanbul-instrumenter'
           }
         ]
       }

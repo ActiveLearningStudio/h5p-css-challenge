@@ -1,4 +1,8 @@
 /*global H5P*/
+
+/**
+ * Exports the Input class
+ */
 export default class Input extends H5P.EventDispatcher {
 
   /**
