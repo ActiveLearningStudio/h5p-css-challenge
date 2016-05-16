@@ -1,8 +1,10 @@
 /*global H5P*/
 
 // Import scripts
-import View from './view';
-import Input from './input';
+import React from "react";
+import ReactDOM from "react-dom";
+
+import Layout from './components/layout';
 /**
  * @type AnswerRule
  * @property {string}   AnswerRule.mainRule
@@ -21,24 +23,17 @@ export default class CssChallenge {
    * @constructor
    */
   constructor(params) {
-    // Apply helpers to target and goal
-    var existingRulesString = '';
-    params.existingRules = params.existingRules || [];
-    params.existingRules.forEach(function (existingRule) {
-      existingRulesString += existingRule;
-    });
 
-    // Apply correct rules to goal
-    var answerRulesString = '';
-    params.answerRules.forEach(function (answerRule) {
-      answerRulesString += answerRule.mainRule;
-    });
+    let existingRulesString = params.existingRules
+      .reduce((prev, value) => prev + value);
 
-    var view = new View(existingRulesString, answerRulesString);
-    var input = new Input(params.answerRules.length, params.challengeText, params.l10n);
-    input.on('inputChanged', function (e) {
-      view.setTargetStyle(e.data);
-    });
+    let answerRulesString = params.answerRules
+      .reduce((prev, value) => prev + value.mainRule);
+
+    let layoutParams = Object.assign({
+      existingRulesString,
+      answerRulesString
+    }, params);
 
     /**
      * Required function H5P uses to attach library to wrapper.
@@ -46,10 +41,7 @@ export default class CssChallenge {
      * @param {jQuery} $wrapper
      */
     this.attach = function ($wrapper) {
-      input.appendTo($wrapper[0]);
-      view.appendTo($wrapper[0]);
-
-      return this;
+      ReactDOM.render(<Layout {...layoutParams}/>, $wrapper.get(0));
     };
   }
 }
