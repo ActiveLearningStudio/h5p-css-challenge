@@ -28,7 +28,7 @@ export default class CssChallenge {
       .reduce((prev, value) => prev + value);
 
     let answerRulesString = params.answerRules
-      .reduce((prev, value) => prev + value.mainRule);
+      .reduce((prev, value) => prev + value.mainRule, '');
 
     let layoutParams = Object.assign({
       existingRulesString,

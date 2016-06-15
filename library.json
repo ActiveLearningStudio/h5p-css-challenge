@@ -10,12 +10,5 @@
   "machineName": "H5P.CssChallenge",
   "preloadedJs": [
     {"path": "build/dist.js"}
-  ],
-  "editorDependencies": [
-    {
-      "machineName": "H5PEditor.CssChallenge",
-      "majorVersion": 1,
-      "minorVersion": 0
-    }
   ]
 }
