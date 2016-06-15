@@ -1,0 +1,13 @@
+node_modules
+reports
+dev
+.idea
+out
+.babelrc
+.travis.yml
+esdoc.json
+karma.conf.js
+README.md
+webpack.config.js
+worknotes
+src

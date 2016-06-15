@@ -27,7 +27,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/test/*.js': ['webpack'],
+      'src/test/*.js': ['webpack', 'sourcemap'],
       'src/scripts/*.js': ['coverage']
     },
 
@@ -60,7 +60,8 @@ module.exports = function(config) {
             loader: 'istanbul-instrumenter'
           }
         ]
-      }
+      },
+      devtool: 'inline-source-map'
     },
 
     // test results reporter to use
