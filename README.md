@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/thomasmars/h5p-css-challenge.svg?branch=master)](https://travis-ci.org/thomasmars/h5p-css-challenge) [![Coverage Status](https://coveralls.io/repos/github/thomasmars/h5p-css-challenge/badge.svg?branch=master)](https://coveralls.io/github/thomasmars/h5p-css-challenge?branch=master)
 
-A H5P library for creating css challenges, where the user has to style elements in order to complete the test.
+A H5P library for creating css challenges.
+Style elements in order to win.
 
 ## Getting started
 
