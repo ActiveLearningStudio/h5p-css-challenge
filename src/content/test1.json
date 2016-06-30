@@ -9,6 +9,7 @@
   ],
   "challengeText": "Make the background red!",
   "l10n": {
-    "inputDescription": "Put in stuff"
+    "inputDescription": "Change how the background of target element looks",
+    "targetElementClass": ".rectangle"
   }
 }

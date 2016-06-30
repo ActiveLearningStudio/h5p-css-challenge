@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import View from '../view';
+import * as styles from '../styles/view.css';
 
 describe('View', () => {
   const props = {
@@ -19,16 +20,16 @@ describe('View', () => {
 
   describe('Goal', () => {
     const goalContainer = TestUtils
-      .findRenderedDOMComponentWithClass(view, 'h5p-css-challenge-goal');
-
+      .findRenderedDOMComponentWithClass(view, styles.goal);
+  
     it('should be created', () => {
       expect(goalContainer).toBeDefined();
     });
-
+  
     it('should get the existing style', () => {
       expect(goalContainer.style.background).toBe('green');
     });
-
+  
     it('should get the goal style', () => {
       expect(goalContainer.style.margin).toBe('auto');
     });
@@ -36,20 +37,20 @@ describe('View', () => {
 
   describe('Target', () => {
     const targetContainer = TestUtils
-      .findRenderedDOMComponentWithClass(view, 'h5p-css-challenge-target');
-
+      .findRenderedDOMComponentWithClass(view, styles.target);
+  
     it('should be created', () => {
       expect(targetContainer).toBeDefined();
     });
-
+  
     it('should get the existing style', () => {
       expect(targetContainer.style.background).toBe('green');
     });
-
+  
     it('should not get the goal style', () => {
       expect(targetContainer.style.margin).not.toBe('auto');
     });
-
+  
     it('should update to valid user string', () => {
       let newProps = props;
       newProps.userString = 'margin:auto;';
@@ -58,10 +59,10 @@ describe('View', () => {
           <View {...newProps} />
         );
       const changedTarget = TestUtils
-        .findRenderedDOMComponentWithClass(changedView, 'h5p-css-challenge-target');
+        .findRenderedDOMComponentWithClass(changedView, styles.target);
       expect(changedTarget.style.margin).toBe('auto');
     });
-
+  
     it('should not update to an invalid string', () => {
       let invalidProps = props;
       invalidProps.userString = 'margin:green;';
@@ -70,7 +71,7 @@ describe('View', () => {
           <View {...invalidProps} />
         );
       const changedTarget = TestUtils
-        .findRenderedDOMComponentWithClass(changedView, 'h5p-css-challenge-target');
+        .findRenderedDOMComponentWithClass(changedView, styles.target);
       expect(changedTarget.style.margin).not.toBe('green');
     })
   });

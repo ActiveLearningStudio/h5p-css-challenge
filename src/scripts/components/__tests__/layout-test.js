@@ -30,15 +30,15 @@ describe('Layout', () => {
   it('should create a view component', () => {
     expect(View).toBeCalled();
   });
-
+  
   it('should create a input component', () => {
     expect(Input).toBeCalled();
   });
-
+  
   it('should start with an empty user string', () => {
     expect(layout.state.userString).toBe('');
   });
-
+  
   it('should set a new state on changeStyle', () => {
     const event = {
       target: {

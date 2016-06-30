@@ -1,5 +1,7 @@
 import React from "react";
 
+import * as styles from './styles/view.css';
+
 export default class View extends React.Component {
 
   constructor(props) {
@@ -22,14 +24,14 @@ export default class View extends React.Component {
 
   render() {
     return (
-      <div className="h5p-css-challenge-view-container">
-        <div className="h5p-css-challenge-goal-container">
-          <div style={this.goalStyle} className="h5p-css-challenge-goal"></div>
-        </div>
-        <div className="h5p-css-challenge-target-container">
-          <div className="h5p-css-challenge-target"
-            style={this.formatStyleString(this.props.existingRulesString + this.props.userString)}
+      <div className={this.props.style}>
+        <div className={styles.targetContainer}>
+          <div className={styles.target}
+               style={this.formatStyleString(this.props.existingRulesString + this.props.userString)}
           ></div>
+        </div>
+        <div className={styles.goalContainer}>
+          <div style={this.goalStyle} className={styles.goal}></div>
         </div>
       </div>
     );

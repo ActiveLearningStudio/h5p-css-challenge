@@ -21,13 +21,13 @@ describe('Input', () => {
   );
 
   const description = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'h5p-css-challenge-description');
+    .findRenderedDOMComponentWithClass(input, 'question');
 
   const inputDescription = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'h5p-css-challenge-input-description');
+    .findRenderedDOMComponentWithClass(input, 'description');
 
   const textArea = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'h5p-css-challenge-input');
+    .findRenderedDOMComponentWithClass(input, 'input');
 
   it('is initially empty', () => {
     expect(textArea.textContent).toBe('');

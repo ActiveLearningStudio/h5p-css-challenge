@@ -23,8 +23,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, "src/styles"),
-        loader: "style!css"
+        include: path.resolve(__dirname, "src/scripts"),
+        loader: "style!css?sourceMap&modules"
       },
       {
         test: /\.json$/,

@@ -3,7 +3,5 @@
  */
 /*global H5P*/
 
-require('./chunks/cssChunk');
-
 // Load library
 H5P.CssChallenge = require('../scripts/css-challenge');

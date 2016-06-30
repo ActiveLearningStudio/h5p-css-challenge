@@ -3,6 +3,8 @@ import React from "react";
 import Input from "./input";
 import View from "./view";
 
+import * as styles from './styles/layout.css';
+
 export default class Layout extends React.Component {
 
   constructor(params) {
@@ -27,9 +29,9 @@ export default class Layout extends React.Component {
 
   render() {
     return (
-      <div>
-        <Input {...this.inputParams}/>
-        <View
+      <div className={styles.layout}>
+        <Input style={styles.input} {...this.inputParams}/>
+        <View style={styles.view}
           existingRulesString={this.props.existingRulesString}
           answerRulesString={this.props.answerRulesString}
           userString={this.state.userString}

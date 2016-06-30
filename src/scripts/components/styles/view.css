@@ -1,0 +1,23 @@
+.goalContainer,
+.targetContainer {
+  display: inline-block;
+  height: 100%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: calc(50% - 1em);
+}
+
+.goalContainer {
+  margin-left: 2em;
+}
+
+.target,
+.goal {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.target {
+  transition: all 0.75s;
+}
