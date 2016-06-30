@@ -8,4 +8,4 @@ import CssChallenge from '../scripts/css-challenge';
 var params = require('../content/test1.json');
 
 var cssChallenge = new CssChallenge(params);
-cssChallenge.attach(H5P.jQuery('body'));
+cssChallenge.attach(H5P.jQuery('<div>').appendTo(H5P.jQuery('body')));
