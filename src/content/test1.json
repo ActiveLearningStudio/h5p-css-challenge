@@ -3,7 +3,9 @@
     "background: green;"
   ],
   "answerRules": [
-    "margin: auto"
+    {
+      "mainRule": "margin: auto"
+    }
   ],
   "challengeText": "Make the background red!",
   "l10n": {

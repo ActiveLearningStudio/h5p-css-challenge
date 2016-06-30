@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "testdev": "jest --watch",
-    "webpack": "webpack -d",
+    "build": "webpack -d",
     "dev": "webpack -d && webpack-dev-server -d --inline --hot --open"
   },
   "repository": {
