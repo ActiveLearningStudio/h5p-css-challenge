@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
   entry: {
     '../dist/dist': "./src/entries/dist.js",
-    'devTest1': "./src/entries/devTest1.js"
+    'dev': "./src/entries/dev.js"
   },
   output: {
     path: path.join(__dirname, '/build'),

@@ -4,7 +4,7 @@
   "description": "Challenges you to write css to solve a problem",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache",
     "testdev": "jest --watch",
     "build": "webpack -d",
     "dev": "webpack -d && webpack-dev-server -d --inline --hot --open"
@@ -43,22 +43,26 @@
     "istanbul-instrumenter-loader": "^0.2.0",
     "jasmine-core": "^2.4.1",
     "jest-cli": "^12.1.1",
+    "jest-css-modules": "^1.0.2",
     "json-loader": "^0.5.4",
     "react-addons-test-utils": "^15.1.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "react-test-renderer": "^15.3.0"
   },
   "dependencies": {
-    "history": "^2.1.1",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "react-router": "^2.4.0"
+    "history": "^2.1.2",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-router": "^2.6.1"
   },
   "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules",
     "unmockedModulePathPatterns": [
       "react",
       "react-dom",
-      "react-addons-test-utils"
+      "jest-css-modules",
+      "react-test-renderer"
     ]
   }
 }

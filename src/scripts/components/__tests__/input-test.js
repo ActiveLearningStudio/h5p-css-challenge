@@ -20,14 +20,8 @@ describe('Input', () => {
     <Input {...props} />
   );
 
-  const description = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'question');
-
-  const inputDescription = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'description');
-
-  const textArea = TestUtils
-    .findRenderedDOMComponentWithClass(input, 'input');
+  const textArea = TestUtils.findRenderedDOMComponentWithTag(input, 'textarea');
+  const inputNode = ReactDOM.findDOMNode(input);
 
   it('is initially empty', () => {
     expect(textArea.textContent).toBe('');
@@ -39,10 +33,10 @@ describe('Input', () => {
   });
 
   it('should have a challenge text', () => {
-    expect(description.textContent).toBe('challengeText');
+    expect(inputNode.textContent).toContain('challengeText');
   });
 
   it('should have a input description', () => {
-    expect(inputDescription.textContent).toBe('input description');
+    expect(inputNode.textContent).toContain('input description');
   })
 });
